@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut.embeddedcollection;
+package com.akash.hibernate.hibernatetut.customembeddedcollection;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,10 +7,12 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 import com.akash.hibernate.hibernatetut.embedded.Address;
 
-@Entity(name="people_collection")
+@Entity(name="people_custom_collection")
 public class People
 {
 	@Id @GeneratedValue
@@ -18,6 +20,7 @@ public class People
 	private String name;
 	
 	@ElementCollection
+	@JoinTable(name="adrr_list", joinColumns=@JoinColumn(name="people_id"))
 	private Collection<Address> addressList=new ArrayList<Address>();
 	
 	public int getPeopleId() {
@@ -48,8 +51,8 @@ public class People
 /**
  *  Create Operation :
  * 
- * 	Hibernate: insert into people_collection (name) values (?)
- *	Hibernate: insert into People_addressList (People_peopleId, city, houseNo, pincode, street) values (?, ?, ?, ?, ?)
- *	Hibernate: insert into People_addressList (People_peopleId, city, houseNo, pincode, street) values (?, ?, ?, ?, ?)
- * 
+ *  Hibernate: insert into people_custom_collection (name) values (?)
+ *	Hibernate: insert into adrr_list (people_id, city, houseNo, pincode, street) values (?, ?, ?, ?, ?)
+ *	Hibernate: insert into adrr_list (people_id, city, houseNo, pincode, street) values (?, ?, ?, ?, ?)
+ *
  */

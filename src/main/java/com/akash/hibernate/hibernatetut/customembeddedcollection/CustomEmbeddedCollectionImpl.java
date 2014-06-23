@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut.embeddedcollection;
+package com.akash.hibernate.hibernatetut.customembeddedcollection;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import com.akash.hibernate.hibernatetut.embedded.Address;
 import com.akash.hibernate.hibernatetut.singledomain.HibernateUtil;
 
-public class EmbeddedCollectionImpl
+public class CustomEmbeddedCollectionImpl
 {
 	public void runEmbeddedCollection()
 	{
