@@ -1,6 +1,6 @@
 package com.akash.hibernate.hibernatetut.embedded;
 
-public class EmbededImpl
+public class App
 {
 	public static void main(String args[])
 	{

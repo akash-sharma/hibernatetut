@@ -2,8 +2,8 @@ package com.akash.hibernate.hibernatetut.customembed;
 
 import org.hibernate.Session;
 
-import com.akash.hibernate.hibernatetut.HibernateUtil;
 import com.akash.hibernate.hibernatetut.embedded.Address;
+import com.akash.hibernate.hibernatetut.singledomain.HibernateUtil;
 
 public class CustomEmbededDomainImpl
 {

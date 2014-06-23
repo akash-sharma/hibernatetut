@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut;
+package com.akash.hibernate.hibernatetut.singledomain;
 
 import org.hibernate.Session;
 

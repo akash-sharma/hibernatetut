@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut;
+package com.akash.hibernate.hibernatetut.singledomain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

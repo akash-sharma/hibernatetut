@@ -2,7 +2,7 @@ package com.akash.hibernate.hibernatetut.embedded;
 
 import org.hibernate.Session;
 
-import com.akash.hibernate.hibernatetut.HibernateUtil;
+import com.akash.hibernate.hibernatetut.singledomain.HibernateUtil;
 
 public class EmbededDomainImpl
 {
