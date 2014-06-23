@@ -28,6 +28,7 @@ public class SingleDomain
         	System.out.println("name : "+person.getUsername());
         	System.out.println("id : "+person.getPersonId());
         }
+        session.close();
     }
     
     /**
@@ -46,6 +47,7 @@ public class SingleDomain
         	System.out.println("name : "+person.getUsername());
         	System.out.println("id : "+person.getPersonId());
         }
+        session.close();
     }
     
     private void saveSinglePerson()
@@ -56,5 +58,6 @@ public class SingleDomain
         person.setUsername("first user name");
         session.save(person);
         session.getTransaction().commit();
+        session.close();
     }
 }

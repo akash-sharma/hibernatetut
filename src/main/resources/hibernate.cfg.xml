@@ -13,5 +13,6 @@
         <property name="hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
         <mapping class="com.akash.hibernate.hibernatetut.Person"></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.embedded.People"></mapping>
     </session-factory>
 </hibernate-configuration>
