@@ -14,7 +14,7 @@
         <property name="show_sql">true</property>
         <mapping class="com.akash.hibernate.hibernatetut.singledomain.Person"></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.embedded.People"></mapping>
-        <mapping class="com.akash.hibernate.hibernatetut.customembed.People"></mapping>
-        <mapping class="com.akash.hibernate.hibernatetut.embedcollection.People" ></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.customembedded.People"></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.embeddedcollection.People" ></mapping>
     </session-factory>
 </hibernate-configuration>

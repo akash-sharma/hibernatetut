@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut.customembed;
+package com.akash.hibernate.hibernatetut.customembedded;
 
 import org.hibernate.Session;
 

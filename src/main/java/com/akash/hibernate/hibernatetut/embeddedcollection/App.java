@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut.embedcollection;
+package com.akash.hibernate.hibernatetut.embeddedcollection;
 
 public class App
 {
