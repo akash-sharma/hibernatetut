@@ -12,7 +12,8 @@ public class OneToManyImpl
 	public void oneToManyImpl()
 	{
 		createOneToMany();
-		deleteHuman();
+//		deleteHuman();
+//		deleteVehicle();
 	}
 	
 	private void createOneToMany()
@@ -21,7 +22,7 @@ public class OneToManyImpl
 		vehicle1.setName("Car");
 		
 		Vehicle vehicle2=new Vehicle();
-		vehicle2.setName("Car");
+		vehicle2.setName("Bike");
 		
 		Human human=new Human();
 		ArrayList vehicleList=new ArrayList();
@@ -42,9 +43,7 @@ public class OneToManyImpl
 	{
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
-		String queryString="from Human where name=:name";
-		Query query=session.createQuery(queryString);
-		query.setParameter("name", "Ram");
+		Query query=session.createQuery("from Human where name=:name").setParameter("name", "Ram");
 		Human human=(Human)query.list().get(0);
 		session.delete(human);
 		session.getTransaction().commit();
@@ -52,7 +51,12 @@ public class OneToManyImpl
 	
 	private void deleteVehicle()
 	{
-		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Query query=session.createQuery("from Vehicle_onetomany where name=:name").setParameter("name", "Car");
+		Vehicle vehicle=(Vehicle)query.list().get(0);
+		session.delete(vehicle);
+		session.getTransaction().commit();
 	}
 }
 
@@ -91,5 +95,8 @@ public class OneToManyImpl
  * (2)If we delete object of A, then its related entries 
  * 		in A_B are also deleted automatically 
  * 		but object of B is not deleted.
- * 
+ * (3)If we try to delete only B then an error will occur,
+ *  	com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException:
+ *   	Cannot delete or update a parent row: a foreign key constraint fails
+ *   
  */
