@@ -15,7 +15,7 @@ public class Teacher
 	private int id;
 	private String name;
 	
-	@OneToMany
+	@OneToMany(mappedBy="teacher")
 	private Collection<Student> students=new HashSet<Student>();
 	
 	public Collection<Student> getStudents() {

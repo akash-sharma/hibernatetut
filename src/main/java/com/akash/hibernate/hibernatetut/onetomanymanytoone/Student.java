@@ -3,6 +3,7 @@ package com.akash.hibernate.hibernatetut.onetomanymanytoone;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,6 +14,7 @@ public class Student
 	private String name;
 	
 	@ManyToOne
+	@JoinColumn(name="teacherId")
 	private Teacher teacher;
 	
 	public Teacher getTeacher() {
