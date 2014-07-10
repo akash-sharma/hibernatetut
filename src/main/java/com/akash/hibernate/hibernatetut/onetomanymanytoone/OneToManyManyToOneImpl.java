@@ -54,7 +54,7 @@ public class OneToManyManyToOneImpl
 *Hibernate: alter table Teacher_Student add index FK55FA429EAB93335A (Teacher_id), add constraint FK55FA429EAB93335A foreign key (Teacher_id) references Teacher (id)
 *
 *
-**<========When Not using mappedBy property in OneToMany=========>
+**<========When using mappedBy property in OneToMany=========>
 *
 *Hibernate: create table Student (id integer not null auto_increment, name varchar(255), teacher_id integer, primary key (id))
 *Hibernate: create table Teacher (id integer not null auto_increment, name varchar(255), primary key (id))

@@ -26,5 +26,7 @@
         <mapping class="com.akash.hibernate.hibernatetut.manytoone.Employee" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.onetomanymanytoone.Teacher" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.onetomanymanytoone.Student" ></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.manytomany.User" ></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.manytomany.Role" ></mapping>
     </session-factory>
 </hibernate-configuration>

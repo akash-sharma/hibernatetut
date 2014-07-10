@@ -62,6 +62,9 @@ public class OneToManyImpl
 
 
 /**
+ * (Q)Why hibernate creates third table in OneToMany but not in case of manyToOne ?
+ * 
+ * 
  * This setting is unidirectional OneToMany
  * Bidirectional OneToMany ???
  * 
