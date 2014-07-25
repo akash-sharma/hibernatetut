@@ -28,5 +28,9 @@
         <mapping class="com.akash.hibernate.hibernatetut.onetomanymanytoone.Student" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.manytomany.User" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.manytomany.Role" ></mapping>
+   		
+        <mapping class="com.akash.hibernate.hibernatetut.inheritence.MovableVehicle" ></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.inheritence.TwoWheeler" ></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.inheritence.FourWheeler" ></mapping> 
     </session-factory>
 </hibernate-configuration>
