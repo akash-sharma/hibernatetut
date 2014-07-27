@@ -1,5 +1,7 @@
 package com.akash.hibernate.hibernatetut.singledomain;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 public class SingleDomain
@@ -11,6 +13,8 @@ public class SingleDomain
     	try{
     		readSinglePersonByLoad();
     	}catch(Exception e){}
+    	deletePersonByName("first user name");
+    	deletePerson();
 	}
 	
 	/**
@@ -28,6 +32,7 @@ public class SingleDomain
         	System.out.println("name : "+person.getUsername());
         	System.out.println("id : "+person.getPersonId());
         }
+        session.getTransaction().commit();
         session.close();
     }
     
@@ -47,6 +52,7 @@ public class SingleDomain
         	System.out.println("name : "+person.getUsername());
         	System.out.println("id : "+person.getPersonId());
         }
+        session.getTransaction().commit();
         session.close();
     }
     
@@ -57,6 +63,31 @@ public class SingleDomain
         Person person = new Person();
         person.setUsername("first user name");
         session.save(person);
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    private void deletePerson()
+    {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Person person =(Person)session.get(Person.class, 1);
+        if(person!=null)
+        	session.delete(person);
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    private void deletePersonByName(String name)
+    {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List personList=session.createQuery("from person_entity where person_name=:name").setParameter("name", name).list();
+        if(personList.size()>1)
+        {
+        	Person person=(Person)personList.get(0);
+        	session.delete(person);
+        }
         session.getTransaction().commit();
         session.close();
     }

@@ -72,14 +72,18 @@ public class InheritenceImpl
 	{
 		Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        List listOfVehicles=(List) session.createQuery("from "+entityName+" where rpm=:rpm").setParameter("rpm", rpm).list();
+        
+        MovableVehicle vehicle=(MovableVehicle)session.load(MovableVehicle.class, 3);
+        session.delete(vehicle);
+        
+        /*List listOfVehicles=(List) session.createQuery("from "+entityName+" where rpm=:rpm").setParameter("rpm", rpm).list();
         if(listOfVehicles.size()!=0){
-        	session.delete((MovableVehicle)listOfVehicles.get(0));
+        	session.delete("MovableVehicle", (MovableVehicle)listOfVehicles.get(0));
         	session.flush();
         	System.out.println("object deleted");
         }
         else
-        	System.out.println("output is null");
+        	System.out.println("output is null");*/
         session.close();
 	}
 }
