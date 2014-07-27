@@ -4,17 +4,21 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-public class SingleDomain
+public class SingleDomainImpl
 {
 	public void savePerson()
 	{
-		saveSinglePerson();
+		String name="first user name";
+		String updatedName="updated user name";
+		saveSinglePerson(name);
     	readSinglePersonByGet();
     	try{
     		readSinglePersonByLoad();
     	}catch(Exception e){}
-    	deletePersonByName("first user name");
-    	deletePerson();
+//    	updatePersonViaSaveOrUpdate(name, updatedName);
+    	updatePersonViaExecuteUpdate(name, updatedName);
+    	deletePersonByName(updatedName);
+//    	deletePerson();
 	}
 	
 	/**
@@ -29,8 +33,8 @@ public class SingleDomain
         Person person=(Person)session.get(Person.class, 1);
         if(person!=null)
         {
-        	System.out.println("name : "+person.getUsername());
-        	System.out.println("id : "+person.getPersonId());
+        	System.out.println("name in Get : "+person.getUsername());
+        	System.out.println("id in Get : "+person.getPersonId());
         }
         session.getTransaction().commit();
         session.close();
@@ -49,19 +53,19 @@ public class SingleDomain
         Person person=(Person)session.load(Person.class, 2);
         if(person!=null)
         {
-        	System.out.println("name : "+person.getUsername());
-        	System.out.println("id : "+person.getPersonId());
+        	System.out.println("name in load : "+person.getUsername());
+        	System.out.println("id in load : "+person.getPersonId());
         }
         session.getTransaction().commit();
         session.close();
     }
     
-    private void saveSinglePerson()
+    private void saveSinglePerson(String name)
     {
     	Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Person person = new Person();
-        person.setUsername("first user name");
+        person.setUsername(name);
         session.save(person);
         session.getTransaction().commit();
         session.close();
@@ -76,6 +80,30 @@ public class SingleDomain
         	session.delete(person);
         session.getTransaction().commit();
         session.close();
+    }
+    
+    private void updatePersonViaSaveOrUpdate(String name, String updatedName)
+    {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+    	session.beginTransaction();
+    	List personList=session.createQuery("from person_entity where person_name=:name").setParameter("name", name).list();
+    	if( personList.size()!=0 )
+    	{
+    		Person person=(Person)personList.get(0);
+    		person.setUsername(updatedName);
+    		session.saveOrUpdate(person);
+    	}
+    	session.getTransaction().commit();
+    	session.close();
+    }
+    
+    private void updatePersonViaExecuteUpdate(String name, String updatedName)
+    {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+    	session.beginTransaction();
+    	session.createQuery("UPDATE person_entity set person_name=:updatedName where person_name=:name").setParameter("name", name).setParameter("updatedName", updatedName).executeUpdate();
+    	session.getTransaction().commit();
+    	session.close();
     }
     
     private void deletePersonByName(String name)

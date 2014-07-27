@@ -4,6 +4,6 @@ public class App
 {
     public static void main( String[] args )
     {
-    	new SingleDomain().savePerson();
+    	new SingleDomainImpl().savePerson();
     }
 }
