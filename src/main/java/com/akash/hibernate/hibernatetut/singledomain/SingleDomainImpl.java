@@ -120,3 +120,9 @@ public class SingleDomainImpl
         session.close();
     }
 }
+
+
+/**
+* http://stackoverflow.com/questions/13210638/hibernate-delete-query
+*
+*/

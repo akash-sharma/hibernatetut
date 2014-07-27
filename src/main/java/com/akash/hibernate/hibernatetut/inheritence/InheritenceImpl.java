@@ -2,10 +2,8 @@ package com.akash.hibernate.hibernatetut.inheritence;
 
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.akash.hibernate.hibernatetut.onetoone.Person;
 import com.akash.hibernate.hibernatetut.singledomain.HibernateUtil;
 
 public class InheritenceImpl
@@ -18,9 +16,10 @@ public class InheritenceImpl
 //		readVehicleByName("maruti 800", "MovableVehicle");
 //		readVehicleByRpm(200, "TwoWheeler");
 //		readVehicleByRpm(200, "FourWheeler");
-		readVehicleByRpm(200, "MovableVehicle");
-		deleteVehicle(200,"TwoWheeler");
-		readVehicleByRpm(200, "MovableVehicle");
+//		readVehicleByRpm(200, "MovableVehicle");
+//		deleteVehicle();
+		deleteVehicleWithRpm(200, "MovableVehicle");
+//		readVehicleByRpm(200, "MovableVehicle");
 	}
 	
 	private void createVehicle()
@@ -42,6 +41,7 @@ public class InheritenceImpl
         session.save(fourWheeler);
         session.save(vehicle);
         session.getTransaction().commit();
+        session.close();
 	}
 	
 	private void readVehicleByName(String vehicleName, String entityName)
@@ -53,6 +53,7 @@ public class InheritenceImpl
         	System.out.println("vehicle Id for name : "+((MovableVehicle)listOfVehicles.get(0)).getId());
         else
         	System.out.println("output is null");
+        session.getTransaction().commit();
         session.close();
 	}
 	
@@ -60,30 +61,39 @@ public class InheritenceImpl
 	{
 		Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        List listOfVehicles=(List) session.createQuery("from "+entityName+" where rpm=:rpm").setParameter("rpm", rpm).list();
+        List listOfVehicles=session.createQuery("from "+entityName+" where rpm=:rpm").setParameter("rpm", rpm).list();
         if(listOfVehicles.size()!=0)
         	System.out.println("vehicle id for rpm : "+((MovableVehicle)listOfVehicles.get(0)).getId());
         else
         	System.out.println("output is null");
+        session.getTransaction().commit();
         session.close();
 	}
 	
-	private void deleteVehicle(int rpm, String entityName)
+	private void deleteVehicle()
+	{
+		Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        MovableVehicle vehicle=(MovableVehicle)session.get(MovableVehicle.class, 3);
+        session.delete(vehicle);
+        session.getTransaction().commit();
+        session.close();
+	}
+	
+	private void deleteVehicleWithRpm(int rpm, String entityName)
 	{
 		Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         
-        MovableVehicle vehicle=(MovableVehicle)session.load(MovableVehicle.class, 3);
-        session.delete(vehicle);
-        
-        /*List listOfVehicles=(List) session.createQuery("from "+entityName+" where rpm=:rpm").setParameter("rpm", rpm).list();
-        if(listOfVehicles.size()!=0){
+        List listOfVehicles= session.createQuery("from "+entityName+" where rpm=:rpm").setParameter("rpm", rpm).list();
+        if(listOfVehicles.size()!=0)
+        {
         	session.delete("MovableVehicle", (MovableVehicle)listOfVehicles.get(0));
-        	session.flush();
         	System.out.println("object deleted");
         }
         else
-        	System.out.println("output is null");*/
+        	System.out.println("output is null");
+        session.getTransaction().commit();
         session.close();
 	}
 }
@@ -102,7 +112,8 @@ public class InheritenceImpl
 * vehicle.getName() : 2
 *
 *NOTE:
-*(1)If we try to find a parameter by parent class, that is saved via child class, then object of parent and child return not null.
+*(1)If we try to find a parameter by parent class, that is saved via child class, 
+*	then object of parent and child return not null.
 *	but object of different child class will always return null for that value. 
 *
 */
