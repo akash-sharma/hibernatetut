@@ -16,8 +16,9 @@ public class SingleDomainImpl
     		readSinglePersonByLoad();
     	}catch(Exception e){}
 //    	updatePersonViaSaveOrUpdate(name, updatedName);
-    	updatePersonViaExecuteUpdate(name, updatedName);
-    	deletePersonByName(updatedName);
+//    	updatePersonViaExecuteUpdate(name, updatedName);
+    	updatePersonViaGet(updatedName);
+//    	deletePersonByName(updatedName);
 //    	deletePerson();
 	}
 	
@@ -71,17 +72,6 @@ public class SingleDomainImpl
         session.close();
     }
     
-    private void deletePerson()
-    {
-    	Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        Person person =(Person)session.get(Person.class, 1);
-        if(person!=null)
-        	session.delete(person);
-        session.getTransaction().commit();
-        session.close();
-    }
-    
     private void updatePersonViaSaveOrUpdate(String name, String updatedName)
     {
     	Session session = HibernateUtil.getSessionFactory().openSession();
@@ -106,6 +96,20 @@ public class SingleDomainImpl
     	session.close();
     }
     
+    /**
+     * This method shows that any persistent object which get updated will automatically persisted to DB.
+     * @param updatedName
+     */
+    private void updatePersonViaGet(String updatedName)
+    {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+    	session.beginTransaction();
+    	Person person =(Person)session.get(Person.class, 1);
+    	person.setUsername(updatedName);
+    	session.getTransaction().commit();
+    	session.close();
+    }
+    
     private void deletePersonByName(String name)
     {
     	Session session = HibernateUtil.getSessionFactory().openSession();
@@ -116,6 +120,17 @@ public class SingleDomainImpl
         	Person person=(Person)personList.get(0);
         	session.delete(person);
         }
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    private void deletePerson()
+    {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Person person =(Person)session.get(Person.class, 1);
+        if(person!=null)
+        	session.delete(person);
         session.getTransaction().commit();
         session.close();
     }
