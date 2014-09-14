@@ -15,7 +15,7 @@ public class Role
 	private int id;
 	private String authority;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="roles")
 	Collection<User> users=new ArrayList();
 	
 	public Collection<User> getUsers() {

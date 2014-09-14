@@ -74,6 +74,20 @@ public class ManyToManyImpl
 *
 *
 ***<==========With using mappedBy property=============>
+*Hibernate: create table Role (id integer not null auto_increment, authority varchar(255), primary key (id))
+*Hibernate: create table User (id integer not null auto_increment, username varchar(255), primary key (id))
+*Hibernate: create table User_Role (users_id integer not null, roles_id integer not null)
+*Hibernate: alter table User_Role add index FK8B9F886ABF18FAE6 (roles_id), add constraint FK8B9F886ABF18FAE6 foreign key (roles_id) references Role (id)
+*Hibernate: alter table User_Role add index FK8B9F886ABF1C1F10 (users_id), add constraint FK8B9F886ABF1C1F10 foreign key (users_id) references User (id)
+*
+*
+*<=================Insert Operation====================>
+*Hibernate: insert into User (username) values (?)
+*Hibernate: insert into User (username) values (?)
+*Hibernate: insert into Role (authority) values (?)
+*Hibernate: insert into Role (authority) values (?)
+*Hibernate: insert into User_Role (users_id, roles_id) values (?, ?)
+*Hibernate: insert into User_Role (users_id, roles_id) values (?, ?)
 *
 *
 */
