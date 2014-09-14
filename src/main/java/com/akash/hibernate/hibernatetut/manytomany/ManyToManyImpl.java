@@ -71,6 +71,11 @@ public class ManyToManyImpl
 *	i.e. we have 2 more tables created, A_B and B_A.
 *(2)Object of both A and B can be created separately.
 *(3)All foreign keys are Nullable false.
+*--------
+*-----Add notes for manyToMany with mappedBy with its schema image
+*
+*http://stackoverflow.com/questions/3637956/hibernate-failing-by-prepending-fully-qualified-class-name-to-property-name-on-m
+*---------
 *
 *
 ***<==========With using mappedBy property=============>
@@ -89,6 +94,9 @@ public class ManyToManyImpl
 *Hibernate: insert into User_Role (users_id, roles_id) values (?, ?)
 *Hibernate: insert into User_Role (users_id, roles_id) values (?, ?)
 *
+*
+*(Q)what if we specify @ManyToMany annotation in only one table and not the other ?
+*(Q)How cascade works in ManyToMany relationship ?
 *
 */
 
