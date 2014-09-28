@@ -20,6 +20,15 @@
 
   <dependencies>
   		
+  		<!-- dependencies for java mail api -->
+		  	<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>1.4</version>
+			</dependency>
+						
+  		<!--  -->
+  		
   		<!-- Embedded Jetty server -->
   		<dependency>
 	        <groupId>org.apache.cxf</groupId>
