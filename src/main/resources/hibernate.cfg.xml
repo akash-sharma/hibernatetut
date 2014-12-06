@@ -13,6 +13,9 @@
         <property name="hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
         
+        <property name="hibernate.search.default.directory_provider">filesystem</property> 
+		<property name="hibernate.search.default.indexBase">E:\\hibernate.search.index</property> 
+        
         <mapping class="com.akash.hibernate.hibernatetut.singledomain.Person"></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.embedded.People"></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.customembedded.People"></mapping>
@@ -33,6 +36,9 @@
         <mapping class="com.akash.hibernate.hibernatetut.inheritence.TwoWheeler" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.inheritence.FourWheeler" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.manytomanyoneside.Team" ></mapping>
-        <mapping class="com.akash.hibernate.hibernatetut.manytomanyoneside.TeamUser" ></mapping> 
+        <mapping class="com.akash.hibernate.hibernatetut.manytomanyoneside.TeamUser" ></mapping>
+        
+        <mapping class="com.akash.hibernate.hs.AdharCardInfo" ></mapping>
+        <mapping class="com.akash.hibernate.hs.IndianCitizen" ></mapping> 
     </session-factory>
 </hibernate-configuration>
