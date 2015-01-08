@@ -17,6 +17,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <hibernate.search.version>4.5.1.Final</hibernate.search.version>
+    <hibernate.entity.manager>4.3.7.Final</hibernate.entity.manager>
   </properties>
 
   <dependencies>
@@ -97,6 +98,12 @@
 	   <groupId>org.hibernate</groupId>
 	   <artifactId>hibernate-search-analyzers</artifactId>
 	   <version>${hibernate.search.version}</version>
+	</dependency>
+	
+	<dependency>
+	   <groupId>org.hibernate</groupId>
+	   <artifactId>hibernate-entitymanager</artifactId>
+	   <version>${hibernate.entity.manager}</version>
 	</dependency>
  
 	<!-- Hibernate library dependecy start -->

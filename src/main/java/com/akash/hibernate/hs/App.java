@@ -9,6 +9,7 @@ public class App {
 
 	public static void main(String args[]) {
 		createAdharCard();
+		new HSSearch().createQuery();
 	}
 	
 	private static void createAdharCard() {
