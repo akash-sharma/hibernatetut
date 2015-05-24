@@ -1,12 +1,14 @@
 package com.akash.hibernate.hs;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FieldBridge;
+import org.joda.time.LocalDate;
 
 @Entity
 public class IndianCitizen {
@@ -14,22 +16,44 @@ public class IndianCitizen {
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Field
 	private String username;
-	
+
 	@Field
 	private boolean isNabalik;
-	
+
 	@Field
 	private int age;
-	
+
 	@Field
-	private Date dob;
-	
+	@FieldBridge(impl = LocalDateBridge.class)
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+	private LocalDate dob;
+
 	@Field
 	private Gender gender;
-	
+
+	@Column(length = 500)
+	@Field
+	private String generalInfo;
+
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+
+	public String getGeneralInfo() {
+		return generalInfo;
+	}
+
+	public void setGeneralInfo(String generalInfo) {
+		this.generalInfo = generalInfo;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -71,13 +95,12 @@ public class IndianCitizen {
 	}
 
 	static enum Gender {
-		Male("Male"),
-		Female("Female");
-		
+		Male("Male"), Female("Female");
+
 		private String value;
-		
+
 		Gender(String value) {
-			this.value=value;
+			this.value = value;
 		}
 	}
 }
