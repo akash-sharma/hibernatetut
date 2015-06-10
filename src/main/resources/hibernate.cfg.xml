@@ -39,6 +39,9 @@
         <mapping class="com.akash.hibernate.hibernatetut.manytomanyoneside.TeamUser" ></mapping>
         
         <mapping class="com.akash.hibernate.hs.AdharCardInfo" ></mapping>
-        <mapping class="com.akash.hibernate.hs.IndianCitizen" ></mapping> 
+        <mapping class="com.akash.hibernate.hs.IndianCitizen" ></mapping>
+        <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Master" />
+        <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent1" />
+        <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent2" /> 
     </session-factory>
 </hibernate-configuration>
