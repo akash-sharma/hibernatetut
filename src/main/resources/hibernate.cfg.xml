@@ -15,6 +15,12 @@
         
         <property name="hibernate.search.default.directory_provider">filesystem</property> 
 		<property name="hibernate.search.default.indexBase">E:\\hibernate.search.index</property> 
+		
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="net.sf.ehcache.configurationResourceName">ehcache-config.xml</property>
+            	
         
         <mapping class="com.akash.hibernate.hibernatetut.singledomain.Person"></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.embedded.People"></mapping>
@@ -42,6 +48,7 @@
         <mapping class="com.akash.hibernate.hs.IndianCitizen" ></mapping>
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Master" />
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent1" />
-        <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent2" /> 
+        <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent2" />
+        <mapping class="com.akash.hibernate.hibernatetut.cache.MyCacheEntity"/> 
     </session-factory>
 </hibernate-configuration>

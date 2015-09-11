@@ -18,9 +18,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <hibernate.search.version>4.5.1.Final</hibernate.search.version>
     <hibernate.entity.manager>4.3.7.Final</hibernate.entity.manager>
+    <hibernate-ehcache>4.3.0.Final</hibernate-ehcache>
   </properties>
 
   <dependencies>
+  
+  		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-ehcache</artifactId>
+		    <version>${hibernate-ehcache}</version>
+		</dependency>
   		
   		<!-- dependencies for java mail api -->
 		  	<dependency>
