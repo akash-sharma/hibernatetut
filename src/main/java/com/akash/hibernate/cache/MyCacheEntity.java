@@ -1,4 +1,4 @@
-package com.akash.hibernate.hibernatetut.cache;
+package com.akash.hibernate.cache;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

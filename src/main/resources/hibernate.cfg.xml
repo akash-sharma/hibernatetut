@@ -49,6 +49,6 @@
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Master" />
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent1" />
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent2" />
-        <mapping class="com.akash.hibernate.hibernatetut.cache.MyCacheEntity"/> 
+        <mapping class="com.akash.hibernate.cache.MyCacheEntity"/> 
     </session-factory>
 </hibernate-configuration>

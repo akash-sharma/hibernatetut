@@ -1,0 +1,181 @@
+Hibernate: insert into MyCacheEntity (age, name) values (?, ?)
+Hibernate: insert into MyCacheEntity (age, name) values (?, ?)
+Hibernate: select mycacheent0_.id as id1_8_, mycacheent0_.age as age2_8_, mycacheent0_.name as name3_8_ from MyCacheEntity mycacheent0_ where mycacheent0_.name=?
+<===Start : 1442042601790===>
+com.akash.hibernate.cache.MyCacheEntity@f1603a
+1
+20
+akash
+<===End===>
+<===Start : 1442042601790===>
+com.akash.hibernate.cache.MyCacheEntity@c1a4f
+2
+30
+akash
+<===End===>
+<===Start : 1442042601993===>
+com.akash.hibernate.cache.MyCacheEntity@1894fd4
+1
+20
+akash
+<===End===>
+<===Start : 1442042601993===>
+com.akash.hibernate.cache.MyCacheEntity@1d7f778
+2
+30
+akash
+<===End===>
+<===Start : 1442042602196===>
+com.akash.hibernate.cache.MyCacheEntity@1b820a5
+1
+20
+akash
+<===End===>
+<===Start : 1442042602196===>
+com.akash.hibernate.cache.MyCacheEntity@1675779
+2
+30
+akash
+<===End===>
+Evicting Entity from 2nd level cache: com.akash.hibernate.cache.MyCacheEntity
+Hibernate: select mycacheent0_.id as id1_8_0_, mycacheent0_.age as age2_8_0_, mycacheent0_.name as name3_8_0_ from MyCacheEntity mycacheent0_ where mycacheent0_.id=?
+Hibernate: select mycacheent0_.id as id1_8_0_, mycacheent0_.age as age2_8_0_, mycacheent0_.name as name3_8_0_ from MyCacheEntity mycacheent0_ where mycacheent0_.id=?
+<===Start : 1442042602414===>
+com.akash.hibernate.cache.MyCacheEntity@13d55dd
+1
+20
+akash
+<===End===>
+<===Start : 1442042602414===>
+com.akash.hibernate.cache.MyCacheEntity@10938f7
+2
+30
+akash
+<===End===>
+<===Start : 1442042602618===>
+com.akash.hibernate.cache.MyCacheEntity@18302a4
+1
+20
+akash
+<===End===>
+<===Start : 1442042602618===>
+com.akash.hibernate.cache.MyCacheEntity@229420
+2
+30
+akash
+<===End===>
+<===Start : 1442042602821===>
+com.akash.hibernate.cache.MyCacheEntity@4bf57b
+1
+20
+akash
+<===End===>
+<===Start : 1442042602821===>
+com.akash.hibernate.cache.MyCacheEntity@e18d93
+2
+30
+akash
+<===End===>
+Evicting Entity from 2nd level cache: com.akash.hibernate.cache.MyCacheEntity
+Hibernate: select mycacheent0_.id as id1_8_, mycacheent0_.age as age2_8_, mycacheent0_.name as name3_8_ from MyCacheEntity mycacheent0_ where mycacheent0_.name=?
+<===Start : 1442042603039===>
+com.akash.hibernate.cache.MyCacheEntity@17a151c
+1
+20
+akash
+<===End===>
+<===Start : 1442042603039===>
+com.akash.hibernate.cache.MyCacheEntity@1ffeb41
+2
+30
+akash
+<===End===>
+<===Start : 1442042603242===>
+com.akash.hibernate.cache.MyCacheEntity@1d22817
+1
+20
+akash
+<===End===>
+<===Start : 1442042603242===>
+com.akash.hibernate.cache.MyCacheEntity@461581
+2
+30
+akash
+<===End===>
+<===Start : 1442042603445===>
+com.akash.hibernate.cache.MyCacheEntity@12de91e
+1
+20
+akash
+<===End===>
+<===Start : 1442042603445===>
+com.akash.hibernate.cache.MyCacheEntity@123cde5
+2
+30
+akash
+<===End===>
+Evicting Entity from 2nd level cache: com.akash.hibernate.cache.MyCacheEntity
+Hibernate: select mycacheent0_.id as id1_8_0_, mycacheent0_.age as age2_8_0_, mycacheent0_.name as name3_8_0_ from MyCacheEntity mycacheent0_ where mycacheent0_.id=?
+Hibernate: select mycacheent0_.id as id1_8_0_, mycacheent0_.age as age2_8_0_, mycacheent0_.name as name3_8_0_ from MyCacheEntity mycacheent0_ where mycacheent0_.id=?
+<===Start : 1442042603665===>
+com.akash.hibernate.cache.MyCacheEntity@19ac651
+1
+20
+akash
+<===End===>
+<===Start : 1442042603665===>
+com.akash.hibernate.cache.MyCacheEntity@11c9a97
+2
+30
+akash
+<===End===>
+<===Start : 1442042603869===>
+com.akash.hibernate.cache.MyCacheEntity@1676908
+1
+20
+akash
+<===End===>
+<===Start : 1442042603869===>
+com.akash.hibernate.cache.MyCacheEntity@20cd90
+2
+30
+akash
+<===End===>
+<===Start : 1442042604072===>
+com.akash.hibernate.cache.MyCacheEntity@197d937
+1
+20
+akash
+<===End===>
+<===Start : 1442042604072===>
+com.akash.hibernate.cache.MyCacheEntity@35c871
+2
+30
+akash
+<===End===>
+Evicting Entity from 2nd level cache: com.akash.hibernate.cache.MyCacheEntity
+Hibernate: select mycacheent0_.id as id1_8_, mycacheent0_.age as age2_8_, mycacheent0_.name as name3_8_ from MyCacheEntity mycacheent0_ where mycacheent0_.name=?
+<===Start : 1442042604337===>
+com.akash.hibernate.cache.MyCacheEntity@1f0f176
+1
+20
+akash
+<===End===>
+<===Start : 1442042604337===>
+com.akash.hibernate.cache.MyCacheEntity@17c7d06
+2
+30
+akash
+<===End===>
+<===Start : 1442042604540===>
+com.akash.hibernate.cache.MyCacheEntity@14f309d
+1
+20
+akash
+<===End===>
+<===Start : 1442042604540===>
+com.akash.hibernate.cache.MyCacheEntity@ba0b
+2
+30
+akash
+<===End===>
