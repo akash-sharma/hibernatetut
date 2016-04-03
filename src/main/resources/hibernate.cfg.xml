@@ -5,16 +5,16 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatetut</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">hibernatetut</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+        <property name="hibernate.connection.username">hibernatetut</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         
         <property name="hibernate.search.default.directory_provider">filesystem</property> 
-		<property name="hibernate.search.default.indexBase">E:\\hibernate.search.index</property> 
+		<property name="hibernate.search.default.indexBase">F:\\hibernate.search.index</property> 
 		
 		<property name="hibernate.cache.use_second_level_cache">true</property>
 		<property name="hibernate.cache.use_query_cache">true</property>
@@ -50,5 +50,9 @@
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent1" />
         <mapping class="com.akash.hibernate.hibernatetut.sharedrefrence.Parent2" />
         <mapping class="com.akash.hibernate.cache.MyCacheEntity"/> 
+        <mapping class="com.akash.hibernate.hibernatetut.time.CustomDateEntity" />
+        <mapping class="com.akash.hibernate.hibernatetut.stack.UserDetails" />
+        <mapping class="com.akash.hibernate.hibernatetut.stack.Home"/>
+        <mapping class="com.akash.hibernate.hibernatetut.stack.StackUser"/>
     </session-factory>
 </hibernate-configuration>

@@ -11,6 +11,11 @@ import javax.persistence.TemporalType;
 @Entity
 public class CustomDateEntity {
 
+	/**
+	 * https://dzone.com/articles/deeper-look-java-8-date-and
+	 * LocalDate , LocalTime , LocalDateTime ,ZoneId , DateTimeFormatter
+	 */
+	
 	@Id @GeneratedValue
 	private int id;
 	
