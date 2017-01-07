@@ -44,8 +44,8 @@ public class JPACloner {
 			return;
 		}
 		EntityIdInfo entityIdInfo = new EntityIdInfo(object.getClass().getName(), primaryKey);
-		exploredObjects.add(entityIdInfo);
-		if (isEntity(clazz)) {
+		boolean newObjectAdded = exploredObjects.add(entityIdInfo);
+		if (isEntity(clazz) && newObjectAdded) {
 			if (clazz.getAnnotation(PrimaryKeyJoinColumn.class) != null) {
 				for (Field field : clazz.getSuperclass().getDeclaredFields()) {
 					if (field.getAnnotation(Id.class) != null || field.getAnnotation(Version.class) != null) {
