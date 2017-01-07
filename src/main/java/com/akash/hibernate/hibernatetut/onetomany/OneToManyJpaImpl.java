@@ -17,7 +17,7 @@ public class OneToManyJpaImpl {
 	public static void main(String args[]) throws Exception {
 		createOneToMany();
 		cloneHuman();
-		cloneHumanUsingNeg();
+		// cloneHumanUsingNeg();
 		JpaUtil.close();
 	}
 
