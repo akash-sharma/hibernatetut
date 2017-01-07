@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="JPA_TUTORIAL" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+
+		<class>com.akash.hibernate.hibernatetut.singledomain.Person</class>
+		<class>com.akash.hibernate.hibernatetut.embedded.People</class>
+		<class>com.akash.hibernate.hibernatetut.customembedded.People</class>
+		<class>com.akash.hibernate.hibernatetut.embeddedcollection.People</class>
+		<class>com.akash.hibernate.hibernatetut.customembeddedcollection.People</class>
+		<class>com.akash.hibernate.hibernatetut.onetoone.Person</class>
+		<class>com.akash.hibernate.hibernatetut.onetoone.PersonPojo</class>
+
+		<class>com.akash.hibernate.hibernatetut.onetoone.Vehicle</class>
+		<class>com.akash.hibernate.hibernatetut.onetomany.Human</class>
+		<class>com.akash.hibernate.hibernatetut.onetomany.Vehicle</class>
+		<class>com.akash.hibernate.hibernatetut.manytoone.Company</class>
+		<class>com.akash.hibernate.hibernatetut.manytoone.Employee</class>
+		<class>com.akash.hibernate.hibernatetut.onetomanymanytoone.Teacher</class>
+		<class>com.akash.hibernate.hibernatetut.onetomanymanytoone.Student</class>
+		<class>com.akash.hibernate.hibernatetut.manytomany.User</class>
+		<class>com.akash.hibernate.hibernatetut.manytomany.Role</class>
+
+		<class>com.akash.hibernate.hibernatetut.inheritence.MovableVehicle</class>
+		<class>com.akash.hibernate.hibernatetut.inheritence.TwoWheeler</class>
+		<class>com.akash.hibernate.hibernatetut.inheritence.FourWheeler</class>
+		<class>com.akash.hibernate.hibernatetut.manytomanyoneside.Team</class>
+		<class>com.akash.hibernate.hibernatetut.manytomanyoneside.TeamUser</class>
+
+		<class>com.akash.hibernate.hs.AdharCardInfo</class>
+		<class>com.akash.hibernate.hs.IndianCitizen</class>
+		<class>com.akash.hibernate.hibernatetut.sharedrefrence.Master</class>
+		<class>com.akash.hibernate.hibernatetut.sharedrefrence.Parent1</class>
+		<class>com.akash.hibernate.hibernatetut.sharedrefrence.Parent2</class>
+		<class>com.akash.hibernate.cache.MyCacheEntity</class>
+		<class>com.akash.hibernate.hibernatetut.time.CustomDateEntity</class>
+		<class>com.akash.hibernate.hibernatetut.stack.UserDetails</class>
+		<class>com.akash.hibernate.hibernatetut.stack.Home</class>
+		<class>com.akash.hibernate.hibernatetut.stack.StackUser</class>
+		<class>com.akash.hibernate.hibernatetut.onetomany.Tyre</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+			<property name="javax.persistence.jdbc.user" value="hibernatetut" />
+			<property name="javax.persistence.jdbc.password" value="hibernatetut" />
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="hibernate.show_sql" value = "true" />
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+			
+			<!-- <property name="hibernate.search.default.directory_provider" value="filesystem"/> 
+			<property name="hibernate.search.default.indexBase" value="F:\\hibernate.search.index"/>  -->
+			
+			<property name="hibernate.cache.use_second_level_cache" value="true"/>
+			<property name="hibernate.cache.use_query_cache" value="true"/>
+			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+			<property name="net.sf.ehcache.configurationResourceName" value="ehcache-config.xml"/>
+			
+		</properties>
+
+	</persistence-unit>
+</persistence>

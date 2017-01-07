@@ -1,20 +1,32 @@
 package com.akash.hibernate.hibernatetut.onetoone;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Person
 {
+	public Person() {
+		
+	}
+	
+	public Person(String personName,Integer id, String vehicleName) {
+		
+		this();
+		this.personName=personName;
+		this.id=id;
+		this.vehicle = new Vehicle();
+		this.vehicle.setVehicleName(vehicleName);
+	}
+	
 	@Id @GeneratedValue
 	private int id;
 	private String personName;
 	
-	@OneToOne
-	@JoinColumn(name="vehicle_id")
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="person")
 	private Vehicle vehicle;
 	
 	public Vehicle getVehicle() {

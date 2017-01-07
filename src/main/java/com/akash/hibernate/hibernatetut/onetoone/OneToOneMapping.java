@@ -1,6 +1,8 @@
 package com.akash.hibernate.hibernatetut.onetoone;
 
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -11,7 +13,10 @@ public class OneToOneMapping
 	public void operationOnOneToOne()
 	{
 		createPerson();
-		deletePerson();
+//		selectDataAsPojo();
+		//deletePerson();
+		readPerson();
+		HibernateUtil.shutdown();
 	}
 	
 	private void createPerson()
@@ -32,7 +37,30 @@ public class OneToOneMapping
         session.save(person2);
         session.save(vehicle);
         session.getTransaction().commit();
+        session.clear();
 	}
+	
+	private void readPerson() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Person person = (Person) session.get(Person.class, 1);
+        session.getTransaction().commit();
+        session.clear();
+	}
+	
+	private void selectDataAsPojo() {
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        String queryString="Select new com.akash.hibernate.hibernatetut.onetoone.PersonPojo(p.personName, p.id, p.vehicle.vehicleName) from Person p";
+        Query query = session.createQuery(queryString);
+        List<PersonPojo> personList = query.list();
+        for(PersonPojo person : personList) {
+        	System.out.println("name : "+person.getPersonName());
+        }
+	}
+	
+	
 	
 	private void deletePerson()
 	{

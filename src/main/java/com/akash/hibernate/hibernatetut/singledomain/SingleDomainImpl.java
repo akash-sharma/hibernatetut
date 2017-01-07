@@ -15,11 +15,12 @@ public class SingleDomainImpl
     	try{
     		readSinglePersonByLoad();
     	}catch(Exception e){}
-//    	updatePersonViaSaveOrUpdate(name, updatedName);
+    	updatePersonViaSaveOrUpdate(name, updatedName);
 //    	updatePersonViaExecuteUpdate(name, updatedName);
-    	updatePersonViaGet(updatedName);
+//    	updatePersonViaGet(updatedName);
 //    	deletePersonByName(updatedName);
 //    	deletePerson();
+    	HibernateUtil.shutdown();
 	}
 	
 	/**
@@ -67,6 +68,7 @@ public class SingleDomainImpl
         session.beginTransaction();
         Person person = new Person();
         person.setUsername(name);
+        person.setCountry("India");
         session.save(person);
         session.getTransaction().commit();
         session.close();
@@ -114,7 +116,8 @@ public class SingleDomainImpl
     {
     	Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        List personList=session.createQuery("from person_entity where person_name=:name").setParameter("name", name).list();
+        //List personList=session.createQuery("from person_entity where person_name=:name").setParameter("name", name).list();
+        List personList=session.createSQLQuery("Select pt.* from person_table pt where person_name=:name").setParameter("name", name).list();
         if(personList.size()>1)
         {
         	Person person=(Person)personList.get(0);
