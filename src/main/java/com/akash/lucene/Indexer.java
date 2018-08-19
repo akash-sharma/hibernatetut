@@ -18,32 +18,21 @@ public class Indexer {
 	private IndexWriter writer;
 
 	public static void main(String[] args) throws Exception {
-		/*
-		 * if (args.length != 2) { throw new
-		 * IllegalArgumentException("Usage: java " + Indexer.class.getName() +
-		 * " <index dir> <data dir>"); }
-		 */
-		String indexDir = "E:/LALA/oodles/lucene";
-		String dataDir = "E:/LALA/oodles/lucene";
+
+		String indexDir = "C:\\Personal_Data\\projects\\index\\index";
+		String dataDir = "C:\\Personal_Data\\projects\\index\\data";
 		long start = System.currentTimeMillis();
 		Indexer indexer = new Indexer(indexDir);
-		int numIndexed;
-		try {
-			numIndexed = indexer.index(dataDir, new TextFilesFilter());
-		} finally {
-			indexer.close();
-		}
+		int numIndexed = indexer.index(dataDir, new TextFilesFilter());
+		indexer.close();
 		long end = System.currentTimeMillis();
-		System.out.println("Indexing " + numIndexed + " files took "
-				+ (end - start) + " milliseconds");
+		System.out.println("Indexing " + numIndexed + " files took " + (end - start) + " milliseconds");
 	}
 
-	// This lucene example works on lucene version 3.0
-	// Contents of files are analysed using StandardAnalyzer
 	public Indexer(String indexDir) throws IOException {
 		Directory dir = FSDirectory.open(new File(indexDir));
-		writer = new IndexWriter(dir, new StandardAnalyzer(Version.LUCENE_30),
-				true, IndexWriter.MaxFieldLength.UNLIMITED);
+		writer = new IndexWriter(dir, new StandardAnalyzer(Version.LUCENE_30), true,
+				IndexWriter.MaxFieldLength.UNLIMITED);
 	}
 
 	public void close() throws IOException {
@@ -67,15 +56,11 @@ public class Indexer {
 		}
 	}
 
-	// new document is created for each file
-	// One document can have multiple fields
 	protected Document getDocument(File f) throws Exception {
 		Document doc = new Document();
 		doc.add(new Field("contents", new FileReader(f)));
-		doc.add(new Field("filename", f.getName(), Field.Store.YES,
-				Field.Index.NOT_ANALYZED));
-		doc.add(new Field("fullpath", f.getCanonicalPath(), Field.Store.YES,
-				Field.Index.NOT_ANALYZED));
+		doc.add(new Field("filename", f.getName(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+		doc.add(new Field("fullpath", f.getCanonicalPath(), Field.Store.YES, Field.Index.NOT_ANALYZED));
 		return doc;
 	}
 
@@ -84,5 +69,4 @@ public class Indexer {
 		Document doc = getDocument(f);
 		writer.addDocument(doc);
 	}
-
 }
